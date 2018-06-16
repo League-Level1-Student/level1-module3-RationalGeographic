@@ -29,7 +29,7 @@ public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
 	private JButton thirdButton, fourthButton;
-	
+
 	private JPanel quizPanel;
 	int score = 0;
 	JLabel scoreBox = new JLabel("0");
@@ -45,20 +45,21 @@ public class Jeopardy implements ActionListener {
 		frame.setLayout(new BorderLayout());
 		
 		// 1. Make the frame show up
-
+frame.setVisible(true);
 		// 2. Give your frame a title
-		
+		frame.setTitle("Frame32");
 		// 3. Create a JPanel variable to hold the header using the createHeader method
-		
+JPanel qpanel = new JPanel();
+		qpanel = createHeader("topic");
 		// 4. Add the header component to the quizPanel
-		
+		quizPanel.add(qpanel);
 		// 5. Add the quizPanel to the frame
-
+frame.add(quizPanel);
 		
 		// 6. Use the createButton method to set the value of firstButton 
-	
+	createButton("200");
 	// 7. Add the firstButton to the quizPanel
-		
+quizPanel.add(firstButton);		
 		// 8. Write the code inside the createButton() method below. Check that your game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
 		
 		// 9. Use the secondButton variable to hold a button using the createButton method
@@ -78,76 +79,75 @@ public class Jeopardy implements ActionListener {
 	}
 
 	/*
-	 * 13. Use the method provided to play the Jeopardy theme music 
+	 * 13. Use the method provided to play the Jeopardy theme music
 	 * 
 	 * 14. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
 	 *
-	 * [optional] Use the showImage or playSound methods when the user answers a question 
+	 * [optional] Use the showImage or playSound methods when the user answers a
+	 * question
 	 */
-	
+
 	private JButton createButton(String dollarAmount) {
 		// Create a new JButton
-		
+JButton buton = new JButton();
 		// Set the text of the button to the dollarAmount
-		
+buton.setText(dollarAmount);
 		// Increment the buttonCount (this should make the layout vertical)
-	
+buttonCount = buttonCount + 1;
 		// Return your new button instead of the temporary button
-		
-		return new JButton("temporary button");
+
+		return (buton);
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
 		// Remove this temporary message:
-		JOptionPane.showMessageDialog(null,"pressed " + ((JButton)arg0.getSource()).getText() + " button");
+		JOptionPane.showMessageDialog(null, "pressed " + ((JButton) arg0.getSource()).getText() + " button");
 
 		// Use the method that plays the jeopardy theme music.
 
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
-		
-			// Call the askQuestion() method
-			
-			// Fill in the askQuestion() method. When you play the game, the score should change.
-		
+
+		// Call the askQuestion() method
+
+		// Fill in the askQuestion() method. When you play the game, the score should
+		// change.
+
 		// Or if the buttonPressed was the secondButton
 
+		// Call the askQuestion() method with a harder question
 
-			// Call the askQuestion() method with a harder question
-			
-		
 		// Clear the button text (set the button text to nothing)
-		
+
 	}
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 		// Remove this temporary message
 		JOptionPane.showMessageDialog(null, "this is where the question will be asked");
 		// Use a pop up to ask the user the question
-	
+
 		// If the answer is correct
-		
-			// Increase the score by the prizeMoney
-			
-			// Call the updateScore() method
-			
-			// Pop up a message to tell the user they were correct
-			
+
+		// Increase the score by the prizeMoney
+
+		// Call the updateScore() method
+
+		// Pop up a message to tell the user they were correct
+
 		// Otherwise
-		
-			// Decrement the score by the prizeMoney
-			
-			// Pop up a message to tell the user the correct answer
-			
-			// Call the updateScore() method
-			
-		
+
+		// Decrement the score by the prizeMoney
+
+		// Pop up a message to tell the user the correct answer
+
+		// Call the updateScore() method
+
 	}
 
-
-public void playJeopardyTheme() {
+	public void playJeopardyTheme() {
 		try {
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/Users/League/Google Drive/league-sounds/jeopardy.wav"));
+			AudioInputStream audioInputStream = AudioSystem
+					.getAudioInputStream(new File("/Users/League/Google Drive/league-sounds/jeopardy.wav"));
 			Clip clip = AudioSystem.getClip();
 			clip.open(audioInputStream);
 			clip.start();
