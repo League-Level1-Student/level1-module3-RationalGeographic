@@ -9,23 +9,24 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class wack implements ActionListener {
-		
+	
+	JButton button1 = new JButton();	
 	JPanel panel; 
 	String words = "retardted duck";
-	int score = 0;
+	int moleswhacked = 0;
 	int wrong = 0;
 	static Date d;
+	int tode = 0;
 	public static void main(String[] args) {
 		
 	wack wak = new wack();
 	wak.createUI();
-
-	wak.drawButton(new Random().nextInt(20));
+	 wak.drawButton(new Random().nextInt(20));
 	}
 	public void createUI() {
 		panel = new JPanel();
 	JFrame frame = new JFrame();
-	frame.setSize(500, 500);
+	frame.setSize(300, 300);
 	frame.add(panel);
 	
 	frame.setVisible(true);
@@ -38,11 +39,13 @@ public class wack implements ActionListener {
 		for (int i = 0; i < 20; i++) {
 			
 			if(i == x ) {
-			JButton button1 = new JButton();
+			
 			panel.add(button1);
 			button1.setVisible(true);
 			button1.setText("mole in da cia");
+		
 			button1.addActionListener(this);
+			
 			}
 			else {
 				JButton buton = new JButton();
@@ -52,6 +55,12 @@ panel.add(buton);
 			
 		}
 	}
+
+		
+		
+		
+	
+	
 	void speak(String words) {
 	     try {
 	          Runtime.getRuntime().exec("say " + words).waitFor();
@@ -69,7 +78,9 @@ panel.add(buton);
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		if(tode==1) {
 		
+		System.out.println("lol");}
 	}
 
 }
